@@ -1,0 +1,18 @@
+<script>
+	var Grundpreis = 3;
+	var KmPreis = 0.60;
+	var KmAnzahl;
+	var SummeTaxi;
+	
+	//Eingabe KmAnzahl
+	KmAnzahl = parseFloat (prompt ("Wie viele Kilometer werden vorraussichtlich gefahren?"));
+	
+	//Verarbeitung 
+	
+	SummeTaxi = (KmAnzahl*KmPreis)+Grundpreis;
+	
+	//Ausgabe
+	
+	document.write ("Der Gesamtpreis der Taxifahrt für eine Fahrt von " + KmAnzahl +"km wird  " + SummeTaxi.toFixed(2) + " € betragen.");
+
+</script>
