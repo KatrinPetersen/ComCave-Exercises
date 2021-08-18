@@ -17,7 +17,7 @@ var JahrZahl = 0;
 Schulden = Kredit;
 
 //Übersicht der Eingaben
-document.write ("Kredit: " + Kredit + "€ zu " + Zinsen + "% Zinsen, Tilgungsrate: " + Tilgung + "€.<br><br>");
+document.write ("Kredit: " + Kredit.toFixed(2) + "€ zu " + Zinsen + "% Zinsen, Tilgungsrate: " + Tilgung.toFixed(2) + "€.<br><br>");
 
 //JahrZahl soll Overflow bzw. Absturz verhindern
 while (Schulden >= 0 && JahrZahl <= 24){
