@@ -18,7 +18,8 @@
 	
     	//Texte deklariert um weniger zu schreiben
 	var ErgebnisText ="Der Fahrpreis mit dem Taxi beträgt " + ErgebnisTaxi.toFixed(2) + "€.<br>";
-	var Empfehlung = " Eine Fahrkarte zu kaufen könnte billiger sein, bitte vergleiche deine geplante Strecke mit unserem Zonenplan.<br>";
+	var Empfehlung = "<br>Eine Fahrkarte zu kaufen könnte billiger sein, bitte vergleiche deine geplante Strecke mit unserem Zonenplan.<br>";
+	var Empfehlung1 = "<br>Der Preis der Taxifahrt ist günstiger als unsere billigste Fahrkarte, wenn Sie trotzdem mit uns fahren wollen, empfehlen wir: Fahrkarte Zone 1: " + Tarifzone1.toFixed(2) + "€ <br><br>"
 	
     	//Zwei Bedingungen mit UND verknüpft
     	if (ErgebnisTaxi >= Tarifzone1 && ErgebnisTaxi < Tarifzone2) {
@@ -29,21 +30,25 @@
         		document.write (Empfehlung + "( Fahrkarte Zone 1: " + Tarifzone1.toFixed(2) + "€ )<br><br>");
         	}
 	}
-	if (ErgebnisTaxi >= Tarifzone2 && ErgebnisTaxi < Tarifzone3){
+	else if (ErgebnisTaxi >= Tarifzone2 && ErgebnisTaxi < Tarifzone3){
 		document.write (ErgebnisText);
     		if (Tarifzone2 <= ErgebnisTaxi){
         		document.write (Empfehlung + "( Fahrkarte Zone 2: " + Tarifzone2.toFixed(2) + "€)<br><br>");
         	}
 	}
-	if (ErgebnisTaxi >= Tarifzone3){
+	else if (ErgebnisTaxi >= Tarifzone3){
 		document.write (ErgebnisText);
         	if (Tarifzone3 <= ErgebnisTaxi){
         	document.write (Empfehlung + "( Fahrkarte Zone 3: " + Tarifzone3.toFixed(2) + "€)<br><br>");
         	}
 	}
 	//Wenn der Taxipreis günstiger ist als die günstigste Fahrkarte
-	if (ErgebnisTaxi <= Tarifzone1){
-    		document.write (ErgebnisText);
+	else if (ErgebnisTaxi <= Tarifzone1){
+    		document.write (ErgebnisText + Empfehlung1);
     	}
-    
+	// Wenn keine Zahlen eingegeben wurden kommt eine Fehlermeldung
+    	else {
+    	document.write ("Error: Bitte nur Zahlen eingeben");
+    	}
+	
 </script>
