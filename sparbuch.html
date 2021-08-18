@@ -3,12 +3,14 @@
 Jahr = 1;
 StartEinlage = 100;
 Zinssatz = 2;
-
+	
+//Formeln für die Berechnungen der Zinsen
 Formel1 = StartEinlage/100*Zinssatz;
 NeueEinlage = StartEinlage+Formel1;
 Formel2 = NeueEinlage/100*Zinssatz;
 
-	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2){
+	// Für die Jahres Anzeige + Neuberechnung der neuen höhe der Einlage + Neuberechnung der Zinsenformel
+	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2, Formel2=NeueEinlage/100*Zinssatz){
 		document.write ("Im "+ Jahr + ". Jahr: "+ NeueEinlage.toFixed(2)+"€ <br>");
 	};
 
