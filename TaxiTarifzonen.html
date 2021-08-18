@@ -22,7 +22,9 @@
 	
     	//Zwei Bedingungen mit UND verknüpft
     	if (ErgebnisTaxi >= Tarifzone1 && ErgebnisTaxi < Tarifzone2) {
+		//Ergebnis des Taxipreises
 		document.write (ErgebnisText) ;
+		//Wenn der Preis der Tarifzone kleiner ist als das Ergebnis des TAxipreises folgt die EMpfehlung.
     		if (Tarifzone1 <= ErgebnisTaxi){
         		document.write (Empfehlung + "( Fahrkarte Zone 1: " + Tarifzone1.toFixed(2) + "€ )<br><br>");
         	}
@@ -39,5 +41,9 @@
         	document.write (Empfehlung + "( Fahrkarte Zone 3: " + Tarifzone3.toFixed(2) + "€)<br><br>");
         	}
 	}
+	//Wenn der Taxipreis günstiger ist als die günstigste Fahrkarte
+	if (ErgebnisTaxi <= Tarifzone1){
+    		document.write (ErgebnisText);
+    	}
     
 </script>
