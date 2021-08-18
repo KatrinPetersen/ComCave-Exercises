@@ -1,0 +1,15 @@
+<script>
+//Programmieren Sie die Wertentwicklung eines Sparbuchs über 10 Jahre
+Jahr = 1;
+StartEinlage = 100;
+Zinssatz = 2;
+
+Formel1 = StartEinlage/100*Zinssatz;
+NeueEinlage = StartEinlage+Formel1;
+Formel2 = NeueEinlage/100*Zinssatz;
+
+	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2){
+		document.write ("Im "+ Jahr + ". Jahr: "+ NeueEinlage.toFixed(2)+"€ <br>");
+	};
+
+</script>
