@@ -2,18 +2,18 @@
 //Programmieren Sie die Wertentwicklung eines Sparbuchs über 10 Jahre
 Jahr = 1;
 StartEinlage = 100;
-Zinsen = 2;
+Zinssatz = 2;
 	
 //Formeln für die Berechnungen der Zinsen
-Formel1 = StartEinlage/100*Zinsen;
+Formel1 = StartEinlage/100*Zinssatz;
 NeueEinlage = StartEinlage+Formel1;
-Formel2 = NeueEinlage/100*Zinsen;
+Formel2 = NeueEinlage/100*Zinssatz;
 
 //Ausgabe der StartEinlage und der Zinsen:
-document.write("Die Start-Einlage beträgt: " + StartEinlage + "€.<br>Der Zinssatz beträgt: " + Zinsen +"%.<br><br>");
+document.write("Die Start-Einlage beträgt: " + StartEinlage + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
 	
 	// Für die Jahres Anzeige + Neuberechnung der neuen höhe der Einlage + Neuberechnung der Zinsenformel
-	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2, Formel2=NeueEinlage/100*Zinsen){
+	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2, Formel2=NeueEinlage/100*Zinssatz){
 		document.write ("Im "+ Jahr + ". Jahr: "+ NeueEinlage.toFixed(2)+"€ <br>");
 	};
 
