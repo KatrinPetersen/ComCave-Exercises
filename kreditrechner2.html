@@ -16,7 +16,12 @@ var JahrZahl = 0;
 
 Schulden = Kredit;
 
-	while (Schulden >= 0){
+//Übersicht der Eingaben
+document.write ("Kredit: " + Kredit + "€ zu " + Zinsen + "% Zinsen, Tilgungsrate: " + Tilgung + "€.<br><br>");
+
+//JahrZahl soll Overflow bzw. Absturz verhindern
+while (Schulden >= 0 && JahrZahl <= 24){
+	
 	//Berechnung der Jahreszinsen + Höhe des Kredits mit Zinsen minus der bezahlten Raten
 	JahresZinsen = (Schulden/100)*Zinsen;
 	NeuSchulden = (Schulden+JahresZinsen)-(Tilgung*Jahr);
@@ -30,6 +35,11 @@ Schulden = Kredit;
 	
 	//Ausgabe
 	document.write
-	(JahrZahl+".Jahr: " + "<br>Alte Kredithöhe: " + Kredit.toFixed(2) + "€.<br>Neue Kredithöhe: " +NeuSchulden.toFixed(2) + "€.<br><br>");
+	(JahrZahl+".Jahr:<br>" + " Alte Kredithöhe: " + Kredit.toFixed(2) + "€. ---> Neue Kredithöhe: " +NeuSchulden.toFixed(2) + "€.<br><br>");
+}
+
+//Wenn der Kredit länger als 25 Jahre braucht um ihn zu tilgen, erscheint ein Hinweis
+if (JahrZahl >= 25){
+	document.write ("Du solltest dir überlegen eine andere Tilgungsrate zu nehmen...");
 }
 </script>
