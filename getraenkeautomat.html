@@ -1,0 +1,53 @@
+<script>
+/* 	Programm Getränkeautomat Aufgabe:
+	- Information auf Bildschirm (prompt 1, 2 oder 3)
+	- Eine Information wieviel Geld einzuwerfen ist.
+*/
+
+var AuswahlZahl;
+var AuswahlText1;
+
+var WasserPreis = 0.50;
+var LimoPreis = 1.00;
+var BierPreis = 2.00;
+
+var WasserName = "Wasser";
+var LimoName = "Limonade ";
+var BierName = "Bier";
+
+
+var PreisText = "<br>Bitte zahlen Sie: ";
+var EuroText = "€";
+
+var ErrorText = "Bitte wählen Sie nur eine Nummer von 1 bis 3.";
+
+//AuswahlText4 zeigt beim eingeben der gewünschten Nummer eine Übersicht an
+var AuswahlText4 = "(1)" + WasserName + " (2)" + LimoName + " (3)" + BierName;
+var AuswahlText3 = "Bitte wählen Sie eine Nummer: " + AuswahlText4;
+
+AuswahlZahl = prompt (AuswahlText3);
+
+//Dieser Text muss unter der Eingabe stehen da sonst die AuswahlZahl undefiniert ist
+var AuswahlText2 = "Sie haben ausgewählt:<br> (" + AuswahlZahl + ") ";
+
+switch (AuswahlZahl)
+	{
+	case "1":
+		AuswahlText1 = AuswahlText2 + WasserName + PreisText + WasserPreis.toFixed(2) + EuroText;
+		break;
+		
+	case "2":
+		AuswahlText1 = AuswahlText2 +  LimoName + PreisText + LimoPreis.toFixed(2) + EuroText;
+		break;
+		
+	case "3":
+		AuswahlText1 = AuswahlText2 + WasserName + PreisText + WasserPreis.toFixed(2) + EuroText;
+		break;
+		
+	default:
+		AuswahlText1 = ErrorText;
+}
+
+document.write(AuswahlText1);
+
+</script>
