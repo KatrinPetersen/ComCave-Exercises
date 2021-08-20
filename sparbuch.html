@@ -1,20 +1,27 @@
 <script>
 //Programmieren Sie die Wertentwicklung eines Sparbuchs über 10 Jahre
-Jahr = 1;
-StartEinlage = 100;
-Zinssatz = 2;
-	
-//Formeln für die Berechnungen der Zinsen
-Formel1 = StartEinlage/100*Zinssatz;
-NeueEinlage = StartEinlage+Formel1;
-Formel2 = NeueEinlage/100*Zinssatz;
+//https://js.do/KatrinPetersen/sparbuch
 
-//Ausgabe der StartEinlage und des Zinsatzes:
-document.write("Die Start-Einlage beträgt: " + StartEinlage + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
+//StartWerte
+var StartEinlage = 1000;
+var Zinssatz = 4;
+var Jahr;
+
+// Beschreibung der Startwerte
+document.write("Die Start-Einlage beträgt: " + StartEinlage.toFixed(2) + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
+
+	//Jahr startet mit X; Jahr geht bis 10, Jahr zählt +1
+	for(Jahr=1; Jahr<=10; Jahr=Jahr+1){
 	
-	// Für die Jahres Anzeige + Neuberechnung der neuen höhe der Einlage + Neuberechnung der Zinsenformel
-	for(Jahr=1; Jahr<=10; Jahr=Jahr+1, NeueEinlage=NeueEinlage+Formel2, Formel2=NeueEinlage/100*Zinssatz){
-		document.write ("Im "+ Jahr + ". Jahr: "+ NeueEinlage.toFixed(2)+"€ <br>");
+		//Formel für Zinsenberechnen
+    	var NeueEinlage = ((StartEinlage/100)*Zinssatz) + StartEinlage;
+        var Zinsertrag = ((StartEinlage/100)*Zinssatz);
+		
+		//StartEinlage wird zur NeuenEinlage um die Rechnung korrekt weiterzuführen
+        StartEinlage= NeueEinlage;
+		
+		//Ausgabe der neuen Einlage
+		document.write ("Nach dem "+ Jahr + ". Jahr bekommt man " + Zinsertrag.toFixed(2) +"€ Zinsen.<br>Danach beträgt das neue Guthaben: "+ NeueEinlage.toFixed(2)+"€ <br><br>");
 	};
 
 </script>
