@@ -1,0 +1,45 @@
+<script>
+
+var Kredit;
+var Zinsen;
+var Tilgung;
+
+// Nacheinander die Eingabe von Kredithöhe, Zinsen und der Tilgungsrate
+Kredit = parseFloat (prompt ("Höhe deines Kredits:"));
+Zinsen = parseFloat (prompt ("Zinssatz deines Kredits:"));
+Tilgung = parseFloat (prompt ("Gewünschte Tilgungsrate:"));
+
+//Formeln für die Berechnungen
+//Ein Jahr hat 12 Monate...
+var Jahr = 12;
+var JahrZahl = 0;
+
+Schulden = Kredit;
+
+//Übersicht der Eingaben
+document.write ("Kredit: " + Kredit.toFixed(2) + "€ zu " + Zinsen + "% Zinsen, Tilgungsrate: " + Tilgung.toFixed(2) + "€.<br><br>");
+
+//JahrZahl soll Overflow bzw. Absturz verhindern
+while (Schulden >= 0 && JahrZahl <= 24){
+	
+	//Berechnung der Jahreszinsen + Höhe des Kredits mit Zinsen minus der bezahlten Raten
+	JahresZinsen = (Schulden/100)*Zinsen;
+	NeuSchulden = (Schulden+JahresZinsen)-(Tilgung*Jahr);
+
+	//Benötigte Angaben für richtige Zinsberechnung
+    Kredit = Schulden;
+	Schulden = NeuSchulden;	
+	
+	//Angabe der Jahreszahl
+	JahrZahl = JahrZahl+1;
+	
+	//Ausgabe
+	document.write
+	(JahrZahl+".Jahr:<br>" + " Alte Kredithöhe: " + Kredit.toFixed(2) + "€. ---> Neue Kredithöhe: " +NeuSchulden.toFixed(2) + "€.<br><br>");
+}
+
+//Wenn der Kredit länger als 25 Jahre braucht um ihn zu tilgen, erscheint ein Hinweis
+if (JahrZahl >= 25){
+	document.write ("Du solltest dir überlegen eine andere Tilgungsrate zu nehmen...");
+}
+</script>

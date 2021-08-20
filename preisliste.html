@@ -1,0 +1,23 @@
+<script>
+//Generieren Sie eine Preisliste.
+var ArtikelPreis = 12.99;
+var Menge = 1;
+var Rabatt= 5;
+var GesamtPreis;
+var RabattPreis;
+
+for(Menge=1; Menge<=25; Menge=Menge+1){
+GesamtPreis = ArtikelPreis*Menge;
+RabattPreis = (GesamtPreis/100)*Rabatt;
+
+	if (GesamtPreis >= 100){
+    GesamtPreis = GesamtPreis-RabattPreis;
+    
+	document.write(Menge + "*" + ArtikelPreis + "€ =" + GesamtPreis.toFixed(2)+"€ ab hier mit Rabatt.<br>");
+	}else {
+    document.write(Menge + "*" + ArtikelPreis + "€ =" + GesamtPreis.toFixed(2)+"€ <br>");
+    }
+
+}
+  
+</script>
