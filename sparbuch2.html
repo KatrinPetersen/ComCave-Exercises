@@ -1,0 +1,34 @@
+<script>
+//Programmieren Sie die Wertentwicklung eines Sparbuchs mit einer Funktion
+//https://js.do/KatrinPetersen/sparbuch2
+
+//StartWerte
+var StartEinlage = 1000;
+var Zinssatz = 10;
+var Jahr = 10;
+
+
+// NeueEinlage wird zur Funktion GuthabenErgebnis
+var NeueEinlage = KontoErgebnis (StartEinlage, Zinssatz, Jahr);
+var Zinsen = NeueEinlage - StartEinlage;
+
+// Beschreibung der Startwerte
+document.write("Die Start-Einlage beträgt: " + StartEinlage.toFixed(2) + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
+//Ausgabe der NeueEinlage
+document.write ("Nach Jahr " + Jahr + ": "+ NeueEinlage.toFixed(2) +"€<br> Es gab " + Zinsen.toFixed(2) + "€ Zinsen.");
+
+function KontoErgebnis (StartEinlage, Zinssatz, Jahr) {
+	var i;
+    
+	for (i=1 ; i<=Jahr ; i++){
+    //Formel für Zinsenberechnen - die Daten für StartEinlage, Zinssatz holt sich die Funktion oben runter
+    	var NeueEinlage = ((StartEinlage/100)*Zinssatz) + StartEinlage;
+		
+		//StartEinlage wird zur NeuenEinlage um die Rechnung korrekt weiterzuführen
+        StartEinlage= NeueEinlage;
+    }
+    return NeueEinlage;
+
+}
+
+</script>
