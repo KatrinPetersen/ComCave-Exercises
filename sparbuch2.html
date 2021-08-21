@@ -4,30 +4,34 @@
 
 //StartWerte
 var StartEinlage = 1000;
-var Zinssatz = 10;
-var Jahr = 10;
-
+var Zinssatz = 4;
+var Jahr = 3;
 
 // NeueEinlage wird zur Funktion GuthabenErgebnis
-var NeueEinlage = KontoErgebnis (StartEinlage, Zinssatz, Jahr);
-var Zinsen = NeueEinlage - StartEinlage;
+var NeuerKontostand = KontoErgebnis (StartEinlage, Zinssatz, Jahr);
+var Zinsen = NeuerKontostand - StartEinlage;
 
 // Beschreibung der Startwerte
 document.write("Die Start-Einlage beträgt: " + StartEinlage.toFixed(2) + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
-//Ausgabe der NeueEinlage
-document.write ("Nach Jahr " + Jahr + ": "+ NeueEinlage.toFixed(2) +"€<br> Es gab " + Zinsen.toFixed(2) + "€ Zinsen.");
 
-function KontoErgebnis (StartEinlage, Zinssatz, Jahr) {
+//Ausgabe der NeueEinlage + Anzeige der bisherigen Zinsen in €
+document.write ("Nach Jahr " + Jahr + ": "+ NeuerKontostand.toFixed(2) +"€<br> Es gab " + Zinsen.toFixed(2) + "€ Zinsen.");
+
+// f rangehängt um die Variablen besser unterscheiden zu können
+function KontoErgebnis (StartEinlagef, Zinssatzf, Jahrf) {
 	var i;
     
-	for (i=1 ; i<=Jahr ; i++){
-    //Formel für Zinsenberechnen - die Daten für StartEinlage, Zinssatz holt sich die Funktion oben runter
-    	var NeueEinlage = ((StartEinlage/100)*Zinssatz) + StartEinlage;
+	for (i=1 ; i<=Jahrf ; i++){
+    //Formel für Zinsenberechnen - die Daten kommen von oben (Richtige Reihenfolge beachten)
+    	var NeueEinlagef = ((StartEinlagef/100)*Zinssatzf) + StartEinlagef;
 		
 		//StartEinlage wird zur NeuenEinlage um die Rechnung korrekt weiterzuführen
-        StartEinlage= NeueEinlage;
+        StartEinlagef= NeueEinlagef;
+        
+        //Debug Zeile zum testen
+        //document.write (Jahr + "/" + Jahrf +"Debug: <br>" + StartEinlage + "/" + Zinssatz + "/" + Jahr + "=" + NeuerKontostand + "<br>"+ StartEinlagef + "/" + Zinssatzf + "/" + Jahrf + "=" + NeueEinlagef +  "<br>");
     }
-    return NeueEinlage;
+    return NeueEinlagef;
 
 }
 
