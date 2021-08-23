@@ -7,14 +7,14 @@ var StartEinlage = 1000;
 var Zinssatz = 4;
 var Jahr = 3;
 
-// NeueEinlage wird zur Funktion GuthabenErgebnis
+// NeuerKontostand wird zur Funktion KontoErgebnis
 var NeuerKontostand = KontoErgebnis (StartEinlage, Zinssatz, Jahr);
 var Zinsen = NeuerKontostand - StartEinlage;
 
 // Beschreibung der Startwerte
 document.write("Die Start-Einlage beträgt: " + StartEinlage.toFixed(2) + "€.<br>Der Zinssatz beträgt: " + Zinssatz +"%.<br><br>");
 
-//Ausgabe der NeueEinlage + Anzeige der bisherigen Zinsen in €
+//Ausgabe des neuen Kotostands + Anzeige der bisherigen Zinsen in €
 document.write ("Nach Jahr " + Jahr + ": "+ NeuerKontostand.toFixed(2) +"€<br> Es gab " + Zinsen.toFixed(2) + "€ Zinsen.");
 
 // f rangehängt um die Variablen besser unterscheiden zu können
