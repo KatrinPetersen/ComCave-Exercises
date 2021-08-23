@@ -5,3 +5,4 @@ My exercise results from class at ComCave College.
   - 17.08.2021: Excercises taxi, tarifzone and TaxiTarifzonen
   - 18.08.2021: Excercises sparbuch, preisliste, kreditrechner2
   - 19.08.2021: Excercise getraenkeautomat
+  - 20.08.2021: Excercise sparbuch2
