@@ -1,0 +1,79 @@
+<script>
+/*	Aufgabe:
+	Preislistenrechner Fenster mit Rabatten
+	Ein Fenster = 150€ + 40€ pro m²
+	
+	ab 1000€ Einkaufswert gibt es 5 % Rabatt
+	ab 2000€ Einkaufswert gibt es 7% Rabatt
+	
+	Eingabe Breite in mm / Höhe in mm
+    //5 % Rabatt ab 1000€ 
+    //7% Rabatt ab 2000€
+*/
+//https://js.do/KatrinPetersen/fensterrechner
+
+var Breite;
+var Höhe;
+var Menge;
+
+// Diese Werte können beliebig verändert werden
+var FensterPreis = 150;
+var QmPreis= 40;
+var Rabatt1 = 0.95; 
+var Rabatt2 = 0.93; 
+var Rabattab1 = 1000;
+var Rabattab2 = 2000;
+
+Breite = parseFloat (prompt("Bitte erste Zahl in mm eingeben: "));
+Höhe = parseFloat (prompt("Bitte zweite Zahl in mm eingeben: "));
+Menge = parseFloat (prompt("Anzahl der Fenster die sie kaufen möchten eingeben: "));
+
+QME = Qm (Breite, Höhe, Menge);
+FM = FensterMenge (FensterPreis, Menge);
+erg = EndErgebnis (QME, FM);
+
+document.write ("Deine Eingabe: <br>" +Menge+" Fenster (B/H "+Breite + "x"+ Höhe + "mm):<br>+" +
+				QME.toFixed(2) + "€ (" + QmPreis.toFixed(2) + "€ pro m²) <br>+" +
+               FM.toFixed(2) +"€ (" + FensterPreis.toFixed(2)+ "€ pro Fenster) <br><br>Gesamtsumme: " + erg);
+
+	//Funktion zur Berechnung des Quadratmeterzuschlags
+	// 1m² = 1.000.000mm² -> https://www.metric-conversions.org/de/flache/quadratmeter-in-quadratmillimeter.htm
+	function Qm (b,h,m){
+		var QME;
+		QME=((b*h)/1000000)*QmPreis*m;
+		return QME;
+	}
+    
+    //Funktion zur Berechnung des Preises der Fenster ohne Zuschlag
+	function FensterMenge(f, m){
+    	var FM;
+        FM = f*m;
+        return FM;
+    }
+    
+    //Funktion zur Berechnung des Preises + Zuschlag - Rabatt wenn vorhanden
+    function EndErgebnis (qm, f){
+    	var erg;
+        var RabattText1 = 100-(100*Rabatt1);
+        var RabattText2 = 100-(100*Rabatt2);
+        
+        erg = QME+FM;
+        
+        //Übersicht Rabatte
+        document.write ("Rabatt von "+ RabattText1 + "% ab " + Rabattab1.toFixed(2) + "€ <br> Rabatt von "+ RabattText2 +"% ab "+ Rabattab2.toFixed(2) + "€ <br><br>");
+        
+        if (erg >= Rabattab1 && erg <Rabattab2){
+        	erg = erg*Rabatt1;        
+            erg = erg.toFixed(2) + "€ mit " + RabattText1 +"% Rabatt";
+            
+        }else if (erg >= Rabattab2){
+        	erg = erg*Rabatt1;
+            erg = erg.toFixed(2) + "€ mit " + RabattText2 +"% Rabatt";
+            
+        }else {
+        	erg = erg.toFixed(2) + "€ ohne Rabatt";
+
+        	}
+        return erg;
+    }
+</script>

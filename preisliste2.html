@@ -1,0 +1,36 @@
+<script>
+
+var Menge;
+var Preis;
+
+var Rabatt = 0.95;
+var Rabatt2 = 0.94;
+var Rabatt3 = 0.93;
+var EUR = "€ /";
+
+document.write ("Menge / "+ "Kaffekapseln / " + "Teekapseln / " + "Biscuits" + "<br>");
+
+	for (Menge=1; Menge<=25 ; Menge=Menge+1){
+		var Artikel1 = MengenPreis(Menge, 12.45)
+		var Artikel2 = MengenPreis(Menge, 8.43);
+		var Artikel3 = MengenPreis (Menge, 4.70);
+		
+		document.write (Menge + " / " + Artikel1.toFixed(2)+ EUR + Artikel2.toFixed(2) + EUR + Artikel3.toFixed(2) + EUR + "<br>");
+	}
+	
+	function MengenPreis (m,a){
+		var erg;
+	
+		erg = m*a;
+		
+		if (erg >= 100 && erg < 140){
+			erg = erg*Rabatt;
+		}else if (erg >=140 && erg < 210){
+			erg = erg*Rabatt2;
+		}else if (erg >=210){
+			erg = erg*Rabatt3;
+		}
+		return erg;
+	}
+
+</script>
