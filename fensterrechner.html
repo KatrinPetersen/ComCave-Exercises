@@ -30,7 +30,7 @@ Menge = parseFloat (prompt("Anzahl der Fenster die sie kaufen möchten eingeben:
 
 FM = FensterMenge (FensterPreis, Menge);
 UmmE = Umrechnung (Breite, Höhe);
-QME = Qm (UmmE, QmPreis, Menge);
+QME = Qmzuschlag (UmmE, QmPreis, Menge);
 erg = EndErgebnis (QME, FM);
 
 document.write ("Deine Eingabe: <br>" +Menge+" Fenster (B/H "+Breite + "x"+ Höhe + "mm = "+ UmmE +"m²):<br>+" +
@@ -46,7 +46,7 @@ document.write ("Deine Eingabe: <br>" +Menge+" Fenster (B/H "+Breite + "x"+ Höh
     }
 
 	//Funktion zur Berechnung des Quadratmeterzuschlags
-	function Qm (qm,qmp,m){
+	function Qmzuschlag (qm,qmp,m){
 		var QME;
 		QME=qm*qmp*m;
 		return QME;
