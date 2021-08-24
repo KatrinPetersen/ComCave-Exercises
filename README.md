@@ -7,3 +7,4 @@ My exercise results from class at ComCave College.
   - 19.08.2021: getraenkeautomat
   - 20.08.2021: sparbuch2
   - 23.08.2021: preisliste2, fensterrechner
+  - 24.08.2021: leasingangebote, notenanzeige;
