@@ -1,0 +1,55 @@
+<script>
+/*	Leasingangebote vergleichen
+	1. einmalige Gebühr
+	2. Monatsrate
+	
+	a) schreiben sie ein Unterprogramm (Function) 
+	was mir die Gesamktkosten eines Vertrages für x Monate Laufzeit errechnet
+	
+	b) Schreiben Sie ein Programm was die Gesamtkosten der beiden Verträge vergleicht
+	und mir sagt was günstiger ist für 36 Monate Laufzeit.
+*/
+//https://js.do/KatrinPetersen/leasingangebote
+var MonatsKosten = new Array();
+MonatsKosten[0] = 70;
+MonatsKosten[1] = 45;
+
+var Einmalkosten = new Array();
+Einmalkosten[0] = 2750;
+Einmalkosten[1] = 4400;
+
+var Vertrag = new Array();
+Vertrag[0] = "Vertrag 1 ";
+Vertrag[1] = "Vertrag 2 ";
+
+var Monate;
+Monate = parseFloat (prompt ("Wieviele Monate"));
+
+MP0 = Monatsrechner (MonatsKosten[0],Monate);
+MP1 = Monatsrechner (MonatsKosten[1],Monate);
+erg0 = Endpreis (MP0,Einmalkosten[0]);
+erg1 = Endpreis (MP1,Einmalkosten[1]);
+
+	if (erg0 < erg1){
+		document.write ("Bei einer Laufzeit von " + Monate + " Monate wird empfohlen: " + Vertrag[0] + "<br><br>");
+	}else if (erg1 < erg0){
+		document.write ("Bei einer Laufzeit von " + Monate + " Monate wird empfohlen: " + Vertrag[1] + "<br><br>");
+	}else{
+		document.write ("Selten aber es ist egal welchen Vertrag du nimmst");
+	}
+
+document.write (Vertrag[0] +" = "+ erg0.toFixed(2) +"€ <br>"+ Vertrag[1] +" = "+ erg1.toFixed(2) +"€ <br>");
+
+function Monatsrechner (mk, m){
+	var MP;
+	MP = mk*m;
+	return MP;
+}
+
+function Endpreis (mp, ek){
+	var erg;
+	erg = mp+ek;
+	return erg;
+}
+
+</script>

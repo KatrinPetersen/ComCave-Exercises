@@ -1,0 +1,69 @@
+<script>
+/*
+Erwartete  Ausgabe:
+    
+Mathe:		gut
+Deutsch:	befriedigend
+Englisch:	mangelhaft
+
+Durchschnitt: 3.3
+*/
+//https://js.do/KatrinPetersen/notenanzeige
+var Faecher = new Array();
+var Noten 	= new Array();
+var NText = new Array();
+
+Faecher[0] = "Mathe";		Noten[0] = 1;	
+Faecher[1] = "Deutsch";		Noten[1] = 2;	
+Faecher[2] = "Englisch";	Noten[2] = 3;	
+
+var i;
+var max_i =3;
+erg = Notendurchschnitt (Noten[0],Noten[1],Noten[2]);
+
+/*	for (Deklarierung des NText Arrays) und function NotenText 
+	Codestruktur von Anas Albediwi übernommen
+	ausgebaut für die Noten 1.4 und 6
+*/
+for (i=0; i<max_i ; i++){
+  NText[i] = NotenText(Noten[i]);
+}
+
+function NotenText(n) {
+  var NText;
+  if (n == 1) {
+    NText = "sehr gut";
+  } else if (n == 2) {
+    NText = "gut";
+    
+  } else if (n == 3) {
+    NText = "befriedigend";
+    
+  } else if (n == 4) {
+    NText = "genügend";
+    
+  } else if (n == 5) {
+    NText = "mangelhaft";
+    
+   } else if (n == 6) {
+    NText = "ungenügend";
+  }
+  return NText;
+}
+
+//Ausgabe
+for (i=0; i<max_i ; i++){ 
+	document.write (Faecher[i] + ": " + NText[i]  + "<br>");					
+}
+
+document.write ("<br>Durchschnitt: " + erg);
+
+function Notendurchschnitt(m,d,e){
+	var erg;
+    erg = (m+d+e)/3;
+    erg = erg.toFixed(1);
+    return erg;
+}
+
+
+</script>
