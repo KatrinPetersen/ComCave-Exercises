@@ -28,19 +28,27 @@ Breite = parseFloat (prompt("Bitte erste Zahl in mm eingeben: "));
 Höhe = parseFloat (prompt("Bitte zweite Zahl in mm eingeben: "));
 Menge = parseFloat (prompt("Anzahl der Fenster die sie kaufen möchten eingeben: "));
 
-QME = Qm (Breite, Höhe, Menge);
 FM = FensterMenge (FensterPreis, Menge);
+UmmE = Umrechnung (Breite, Höhe);
+QME = Qm (UmmE, QmPreis, Menge);
 erg = EndErgebnis (QME, FM);
 
-document.write ("Deine Eingabe: <br>" +Menge+" Fenster (B/H "+Breite + "x"+ Höhe + "mm):<br>+" +
+document.write ("Deine Eingabe: <br>" +Menge+" Fenster (B/H "+Breite + "x"+ Höhe + "mm = "+ UmmE +"m²):<br>+" +
 				QME.toFixed(2) + "€ (" + QmPreis.toFixed(2) + "€ pro m²) <br>+" +
                FM.toFixed(2) +"€ (" + FensterPreis.toFixed(2)+ "€ pro Fenster) <br><br>Gesamtsumme: " + erg);
+	
+    //Funktion zur Umrechnung mm² in m²
+    //https://www.metric-conversions.org/de/flache/quadratmeter-in-quadratmillimeter.htm
+    function Umrechnung(b,h){
+    	var UmmE;
+        UmmE = (b*h)/1000000;
+        return UmmE;
+    }
 
 	//Funktion zur Berechnung des Quadratmeterzuschlags
-	// 1m² = 1.000.000mm² -> https://www.metric-conversions.org/de/flache/quadratmeter-in-quadratmillimeter.htm
-	function Qm (b,h,m){
+	function Qm (qm,qmp,m){
 		var QME;
-		QME=((b*h)/1000000)*QmPreis*m;
+		QME=qm*qmp*m;
 		return QME;
 	}
     
